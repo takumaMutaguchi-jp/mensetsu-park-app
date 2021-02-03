@@ -1,1 +1,26 @@
-interviewer
+<div id="content">
+  <div class="container-fluid">
+    <!-- ページタイトル -->
+    <h1 class="h3 mb-4 text-gray-800">面接官をするコースを選んでルームを作る</h1>
+    <!-- コース一覧 -->
+    <%= form_with url: interviewer_path do |form| %>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card mb-4 py-3 border-left-primary">
+            <div class="card-body">
+                <%= form.radio_button :course, :oneQuestion, checked: true %>
+                <%= form.label :course, '一問一答コース', {value: :oneQuestion, style: "display: inline-block;"} %>
+            </div>
+          </div>
+          <div class="card mb-4 py-3 border-left-danger">
+            <div class="card-body">
+                <%= form.radio_button :course, :regular %>
+                <%= form.label :course, '標準面接コース', {value: :regular, style: "display: inline-block;"} %>
+            </div>
+          </div>
+          <%= form.submit 'ルームを作る' , id: "submit" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
